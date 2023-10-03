@@ -57,14 +57,27 @@ function isPalindrome(str) {
 /** revString: return a copy of a string, but in reverse. */
 
 function revString(str) {
+  if (str.length === 0) return "";
+
+  // if (str.length === 1) return str;
+
+  const letters = str.split("").slice(0, -1);
+  return str[str.length - 1] + revString(letters.join(""));
 
 }
 
 /** findIndex: return the index of val in arr (or -1 if val is not present). */
 
 function findIndex(arr, val) {
+  if (arr.length === 0) return -1;
+
+
+  if (arr[arr.length - 1] === val) return arr.length - 1;
+
+  return findIndex(arr.slice(0, -1), val);
 
 }
+
 
 /** gatherStrings: given an object, return an array of all of the string values. */
 
