@@ -11,28 +11,21 @@ function product(nums) {
 function longest(words) {
   if (words.length === 0) return 0;
 
-  // if (words[0].length > longest(words.slice(1))) {
-  //   return words[0].length;
-  // } else{
-  //   return longest(words.slice(1).length);
-  // }
+  const firstLength = words[0].length;
+  const longestOfRest = longest(words.slice(1));
+  return Math.max(firstLength, longestOfRest);
 
-  let longestWord;
-
-  if (words[0].length > longest(words.slice(1))) {
-    longestWord = words[0];
-  } else {
-    longestWord = longest(words.slice(1).length);
-  }
-
-
-  return longestWord.length;
 }
 
 /** everyOther: return a string with every other letter. */
 
 function everyOther(str) {
 
+  if (str.length === 0) return "";
+
+  const everyOtherLetters = str[0] + everyOther(str.split("").splice(2).join(""));
+
+  return everyOtherLetters;
 }
 
 /** find: return boolean depending on if val exists in array or not. */
