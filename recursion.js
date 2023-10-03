@@ -70,12 +70,9 @@ function revString(str) {
 
 function findIndex(arr, val) {
   if (arr.length === 0) return -1;
+  if (arr[0] === val) return 0;
 
-
-  if (arr[arr.length - 1] === val) return arr.length - 1;
-
-  return findIndex(arr.slice(0, -1), val);
-
+  return findIndex(arr.slice(-1), val) + 1;
 }
 
 
